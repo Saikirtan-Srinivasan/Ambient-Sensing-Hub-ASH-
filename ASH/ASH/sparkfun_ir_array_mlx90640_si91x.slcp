@@ -1,0 +1,105 @@
+project_name: sparkfun_ir_array_mlx90640
+label: Third Party Hardware Drivers - MLX90640 - IR Array Breakout (Sparkfun)
+package: platform
+description: |
+  This example project shows an example for Sparkfun IR Array MLX90640 board driver integration.
+category: Example|Platform
+quality: evaluation
+
+filter:
+  - name: Device Type
+    value: [SoC]
+  - name: MCU
+    value: [32-bit MCU]
+  - name: Project Difficulty
+    value: [Beginner]
+
+source:
+  - path: app.cc
+
+include:
+  - path: ''
+    file_list:
+    - path: app.h
+
+component:
+  - id: sl_main
+  - id: syscalls
+    from: wiseconnect3_sdk
+  - id: si91x_memory_default_config
+    from: wiseconnect3_sdk
+  - id: i2c_instance
+    instance: [i2c2]
+    from: wiseconnect3_sdk
+  - id: app_assert
+  - id: sleeptimer
+  - id: sparkfun_ir_array
+    from: third_party_hw_drivers
+config_file:
+  - path: tflite/people_counter_int8.tflite
+    directory: tflite
+toolchain_settings:
+  - option: gcc_compiler_option
+    value: -Wall -Werror
+  - option: gcc_compiler_option
+    value: -Wno-unused-parameter
+  - option: gcc_compiler_option
+    value: -mfp16-format=ieee
+  - option: gcc_compiler_option
+    value: -Wno-missing-field-initializers
+  - option: gcc_linker_option
+    value: -u _printf_float
+sdk_extension:
+  - id: third_party_hw_drivers
+    version: 4.4.1
+  - id: wiseconnect3_sdk
+    version: 3.5.2
+
+readme:
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/README.md
+
+other_file:
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/connection.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/create_example.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/init_workflow.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/memory_config.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/workflow.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/float.png
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/demo.gif
+    directory: "image"
+  - path: ../../documentation/example/sparkfun_ir_array_mlx90640/image/image_generator.py
+    directory: "image"
+
+configuration:
+  - name: SL_ULP_I2C_SCL_PORT
+    value: "HP"
+    condition: [brd2708a]
+  - name: SL_ULP_I2C_SCL_PIN
+    value: "7"
+    condition: [brd2708a]
+  - name: SL_ULP_I2C_SCL_LOC
+    value: "9"
+    condition: [brd2708a]
+  - name: SL_ULP_I2C_SDA_PORT
+    value: "HP"
+    condition: [brd2708a]
+  - name: SL_ULP_I2C_SDA_PIN
+    value: "6"
+    condition: [brd2708a]
+  - name: SL_ULP_I2C_SDA_LOC
+    value: "13"
+    condition: [brd2708a]
+
+ui_hints:
+  highlight:
+    - path: README.md
+      focus: true
+
+post_build:
+  path: ../../../utilities/postbuild_profile/wiseconnect_soc.slpb

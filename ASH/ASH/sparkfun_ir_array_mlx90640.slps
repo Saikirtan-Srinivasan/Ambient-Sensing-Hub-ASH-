@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="ASCII"?>
+<model:MDescriptors xmlns:model="http://www.silabs.com/ss/Studio.ecore">
+  <descriptors name="sparkfun_ir_array_mlx90640">
+    <properties key="projectCommon.sdkId" value="com.silabs.sdk.stack.sisdk:2025.6.2._-1845521514"/>
+    <properties key="universalConfig.relativeWorkspacePath" value="..\sparkfun_ir_array_mlx90640.slcw"/>
+    <properties key="universalConfig.generationDirectory" value=""/>
+    <properties key="universalConfig.toolchainCompatibility" value="iar gcc"/>
+    <properties key="projectCommon.overwriteCopiedSources" value="false"/>
+    <properties key="projectCommon.importModeId" value="LINK"/>
+    <properties key="universalConfig.compSelProjInstanceId" value="1773992086900"/>
+  </descriptors>
+</model:MDescriptors>
