@@ -235,3 +235,4 @@ Team ASH — electronics and embedded systems engineering students passionate ab
 ---
 
 *ASH — Ambient Sensing Hub | Silicon Labs Edge Intelligence Challenge 2026*
+
